@@ -38,7 +38,7 @@ const Header = () => {
           </Link>
         </Text>
         <Text p>
-          If we're mutuals and you want to one of my Domains, <br /> click the
+          If we're mutuals and you want to use one of my Domains, <br /> click the
           button below to see which ones you can ask me about! :3c{" "}
         </Text>
         <Button
