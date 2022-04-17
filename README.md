@@ -7,8 +7,9 @@
 #
 
 Cosmos runs my Domain list on [lio.domains](https://lio.domains)
-It's written using [Next] using [Deta] Base
+Written with [Next] using [Deta] Base, hosted on [Vercel]
 
 
 [Next]:https://nextjs.org
 [Deta]:https://deta.sh
+[Vercel]:https://vercel.app
