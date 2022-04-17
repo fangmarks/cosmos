@@ -9,8 +9,9 @@ export enum TCategory {
   Webmaster = 7,
   ASN = 8,
   Portfolio = 9,
-  UNFINISHED = 10,
+  Unfinished = 10,
   Personal = 11,
+  Social = 12,
 }
 
 export enum Filter {
