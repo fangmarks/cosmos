@@ -32,7 +32,7 @@ const Domains = ({ domains, count }: DomainsProp) => {
                 hoverable
               >
                   <Text h4>
-                    <Link href={`https://${domain.domain}`} icon color={false}>
+                    <Link href={`https://${domain.domain}`} target="_blank" icon color={false}>
                       {domain.domain}
                     </Link>
                   </Text>
