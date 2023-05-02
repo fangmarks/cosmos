@@ -14,7 +14,7 @@ export async function getServerSideProps() {
       'xc-token': process.env.NEXT_NOCO_XC
     }
   }).then(res => res.json()).then(json => json.list.map((domain: Domain) => {
-    domain.category = (domain.category as string).split(',')
+    domain.category = (domain.category as unknown as string).split(',')
     return domain
   }))
 

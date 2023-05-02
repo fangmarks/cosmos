@@ -31,7 +31,7 @@ export enum Filter {
 // }
 export type Domain = {
   key: string;
-  category: string[] | string;
+  category: string[];
   domain: string;
   usage: string;
 };
