@@ -2,19 +2,9 @@ import { Grid, Text, Card, Badge, Link } from "@geist-ui/core";
 import { CardTypes } from "@geist-ui/core/esm/card";
 import NextLink from "next/link";
 import mutual from "utils/mutual";
-import { DomainsProp, TCategory, getKeyByValue } from "utils/types";
+import { DomainsProp, } from "utils/types";
 
-const Domains = ({ domains, count }: DomainsProp) => {
-  if (!count) {
-    return (
-      <>
-        <div>
-          <Text b>No Domains in Database, reload the Page</Text>
-        </div>
-      </>
-    );
-  }
-
+const Domains = ({ domains }: DomainsProp) => {
   return (
     <>
       <div
@@ -23,29 +13,28 @@ const Domains = ({ domains, count }: DomainsProp) => {
         }}
       >
         <Grid.Container key={"what"} gap={2} justify="center">
-          {domains.map((domain) => (
-            <Grid sm key={domain.key}>
+          {domains.map((domain, i) => (
+            <Grid sm key={i}>
               <Card
-                type={mutual(domain.category) as CardTypes}
+                type={mutual((domain.category as string[])) as CardTypes}
                 width="100%"
                 style={{ minWidth: "190px" }}
                 hoverable
               >
-                  <Text h4>
-                    <Link href={`https://${domain.domain}`} target="_blank" icon color={false}>
-                      {domain.domain}
-                    </Link>
-                  </Text>
+                <Text h4>
+                  <Link href={`https://${domain.domain}`} target="_blank" icon color={false}>
+                    {domain.domain}
+                  </Link>
+                </Text>
                 <Text>{domain.usage}</Text>
                 {domain.category ? (
                   <Card.Footer>
-                    {domain.category
-                      ? domain.category?.map((c: TCategory) => (
-                          <Badge key={`${c + domain.key}`}>
-                            {getKeyByValue(c)}
-                          </Badge>
-                        ))
-                      : null}
+                    {(domain.category as string[]).map((c) => (
+                      <Badge key={`${c}`}>
+                        {c}
+                      </Badge>
+                    ))
+                    }
                   </Card.Footer>
                 ) : null}
               </Card>

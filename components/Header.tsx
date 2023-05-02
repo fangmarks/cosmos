@@ -25,21 +25,23 @@ const Header = () => {
   return (
     <>
       <div style={{paddingTop:50}}>
-        {/* <Image
+        <Image
         width="40%"
         style={{ marginTop: "50px", borderRadius: "50%" }}
-        src="https://common.himbo.cat/avatars/lio/shlimaz.png"
-      ></Image> */}
+        src="https://common.himbo.cat/avatars/lio/club.jpg"
+      ></Image>
         <Text h1>lio.domains</Text>
         <Text p>
-          lio.domains is a List of all Domains hosted/operated by{" "}
+          lio.domains is a List of all Domains hosted and/or operated by{" "}
           <Link href="https://twitter.com/HimboLion" color icon>
             @HimboLion
           </Link>
         </Text>
-        <Text p>
+        <Text p style={{
+          textAlign: "center",
+        }}>
           If we're mutuals and you want to use one of my Domains, <br /> click the
-          button below to see which ones you can ask me about! :3c{" "}
+          button or look at the Yellow Cards below to see <br /> which ones you can ask me about! :3c{" "}
         </Text>
         <Button
           onClick={mutualToggle}

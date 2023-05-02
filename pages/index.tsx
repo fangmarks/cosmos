@@ -1,4 +1,4 @@
-import db from "utils/deta";
+
 import Domains from "components/Domains";
 import Header from "components/Header";
 import { sort } from "utils/sort";
@@ -8,17 +8,25 @@ import { useContext } from "react";
 import { Helmet } from "react-helmet";
 
 export async function getServerSideProps() {
-  let { items: domains, count } = await db.fetch();
-  return { props: { domains, count } };
+  const nocofetch = await fetch('https://noco.lio.systems/api/v1/db/data/v1/Cosmos/domains?limit=500&shuffle=0&offset=0', {
+    headers: {
+      'accept': 'application/json',
+      'xc-token': process.env.NEXT_NOCO_XC
+    }
+  }).then(res => res.json()).then(json => json.list.map((domain: Domain) => {
+    domain.category = (domain.category as string).split(',')
+    return domain
+  }))
+
+  return { props: { domains: nocofetch } };
 }
 
-const Index = ({ domains, count }) => {
+const Index = ({ domains }) => {
+
   // @ts-ignore
   const [filter] = useContext(Context);
-
   let d = sort(domains as Domain[], filter);
-  // let d = domains
-
+  
   return (
     <>
       <Helmet>
@@ -30,7 +38,7 @@ const Index = ({ domains, count }) => {
       </Helmet>
       <div style={{ textAlign: "center", margin: "auto" }}>
         <Header />
-        <Domains domains={d} count={count} />
+        <Domains domains={d} />
       </div>
     </>
   );
