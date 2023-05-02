@@ -21,15 +21,35 @@ const Header = () => {
         break;
     }
   }
+  function randomIcon() {
+    let icons = [
+      // Lio
+      "https://common.himbo.cat/avatars/lio/ascii.png",
+      "https://common.himbo.cat/avatars/lio/blep.png",
+      "https://common.himbo.cat/avatars/lio/club.jpg",
+      "https://common.himbo.cat/avatars/lio/leash.jpg",
+      "https://common.himbo.cat/avatars/lio/drip.jpg",
+      // Cae
+      "https://common.himbo.cat/avatars/caecus/geo.png",
+      "https://common.himbo.cat/avatars/caecus/lipbite.png",
+      "https://common.himbo.cat/avatars/caecus/refsheet.jpg",
+    ]
+
+    return icons[Math.floor(Math.random() * icons.length)]
+  }
 
   return (
     <>
-      <div style={{paddingTop:50}}>
+      <div style={{ paddingTop: 50 }}>
         <Image
-        width="40%"
-        style={{ marginTop: "50px", borderRadius: "50%" }}
-        src="https://common.himbo.cat/avatars/lio/club.jpg"
-      ></Image>
+          width="200px"
+          style={{ marginTop: "50px", borderRadius: "50%" }}
+          src={randomIcon()}
+          onClick={(e) => {
+            e.preventDefault()
+            e.currentTarget.src = randomIcon()
+          }}
+        ></Image>
         <Text h1>lio.domains</Text>
         <Text p>
           lio.domains is a List of all Domains hosted and/or operated by{" "}
