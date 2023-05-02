@@ -45,10 +45,6 @@ const Header = () => {
           width="200px"
           style={{ marginTop: "50px", borderRadius: "50%" }}
           src={randomIcon()}
-          onClick={(e) => {
-            e.preventDefault()
-            e.currentTarget.src = randomIcon()
-          }}
         ></Image>
         <Text h1>lio.domains</Text>
         <Text p>
