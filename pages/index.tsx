@@ -8,7 +8,7 @@ import { useContext } from "react";
 import { Helmet } from "react-helmet";
 
 export async function getServerSideProps() {
-  const nocofetch = await fetch('https://noco.lio.systems/api/v1/db/data/v1/Cosmos/domains?limit=500&shuffle=0&offset=0', {
+  const nocofetch = await fetch('https://nocodb-ewkss0gkkockggc4g0wgko80.implant.cam/api/v2/tables/mvypdfnnurvviwz/records?offset=0&limit=25&where=&viewId=vwj2e8p3o2qwwg9m', {
     headers: {
       'accept': 'application/json',
       'xc-token': process.env.NEXT_NOCO_XC
