@@ -20,13 +20,13 @@ export function sort(Domains: Domain[], o: o) {
       let Personal = Domains.filter((c: Domain) => c.category.includes("Personal"));
       let Client = Domains.filter((c: Domain) => c.category.includes("Client"));
       // let Personal = Domains.filter((c: Domain) => !pullOut(c.category, "sort"));
-      return [
+      return [...new Set([
         ...Furry,
         ...Personal,
         ...Infrastructure,
         ...Client,
         ...Defunkt,
-      ].map((c) => c)
+      ])]
   }
 }
 
