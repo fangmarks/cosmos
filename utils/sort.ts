@@ -26,7 +26,7 @@ export function sort(Domains: Domain[], o: o) {
         ...Infrastructure,
         ...Client,
         ...Defunkt,
-      ].map((c) => c).
+      ].map((c) => c)
   }
 }
 
