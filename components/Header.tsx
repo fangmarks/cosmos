@@ -1,26 +1,26 @@
 import { Image, Link, Text, Button } from "@geist-ui/core";
-import { Domain, Filter as EFilter } from "utils/types";
-import Filter, { Context } from "components/Filter";
-import { useContext } from "react";
+// import { Domain, Filter as EFilter } from "utils/types";
+// import Filter, { Context } from "components/Filter";
+// import { useContext } from "react";
 const Header = () => {
   // @ts-ignore
-  const [filter, dispatchFilter] = useContext(Context);
+  // const [filter, dispatchFilter] = useContext(Context);
 
-  function mutualToggle() {
-    switch (filter) {
-      case EFilter.ASC:
-        return dispatchFilter({
-          type: "MUTUAL",
-        });
-      case EFilter.MUTUAL:
-        return dispatchFilter({
-          type: "ASC",
-        });
+  // function mutualToggle() {
+  //   switch (filter) {
+  //     case EFilter.ASC:
+  //       return dispatchFilter({
+  //         type: "MUTUAL",
+  //       });
+  //     case EFilter.MUTUAL:
+  //       return dispatchFilter({
+  //         type: "ASC",
+  //       });
 
-      default:
-        break;
-    }
-  }
+  //     default:
+  //       break;
+  //   }
+  // }
   function randomIcon() {
     let icons = [
       // Lio
@@ -40,7 +40,7 @@ const Header = () => {
 
   return (
     <>
-      <div style={{ paddingTop: 50 }}>
+      <div style={{ textAlign: "center",paddingTop: 50 }}>
         <Image
           width="200px"
           style={{ marginTop: "50px", borderRadius: "50%" }}
@@ -49,24 +49,16 @@ const Header = () => {
         <Text h1>lio.domains</Text>
         <Text p>
           lio.domains is a List of all Domains hosted and/or operated by{" "}
-          <Link href="https://twitter.com/HimboLion" color icon>
-            @HimboLion
+          <Link href="https://lio.to/bluesky" color icon>
+            @pogcha.mp
           </Link>
         </Text>
         <Text p style={{
           textAlign: "center",
         }}>
-          If we're mutuals and you want to use one of my Domains, <br /> click the
-          button or look at the Yellow Cards below to see <br /> which ones you can ask me about! :3c{" "}
+          If we're mutuals and you want to use one of my Domains, <br />
+          lmk on telegram or in DMs, I can probably set something up for u
         </Text>
-        <Button
-          onClick={mutualToggle}
-          auto
-          ghost
-          type={filter === 2 ? "warning" : "default"}
-        >
-          MUTUALS
-        </Button>
       </div>
     </>
   );

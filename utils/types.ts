@@ -34,6 +34,7 @@ export type Domain = {
   category: string[];
   domain: string;
   usage: string;
+  categories: string;
 };
 
 export type DomainsFetch = {

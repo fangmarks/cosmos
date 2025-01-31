@@ -2,6 +2,7 @@ import { Grid, Text, Card, Badge, Link } from "@geist-ui/core";
 import { CardTypes } from "@geist-ui/core/esm/card";
 import NextLink from "next/link";
 import mutual from "utils/mutual";
+import { categoryColors } from "utils/sort";
 import { DomainsProp, } from "utils/types";
 
 const Domains = ({ domains }: DomainsProp) => {
@@ -16,7 +17,7 @@ const Domains = ({ domains }: DomainsProp) => {
           {domains.map((domain, i) => (
             <Grid sm key={i}>
               <Card
-                type={mutual((domain.category as string[])) as CardTypes}
+                type={categoryColors((domain.categories.split(',') as string[])) as CardTypes}
                 width="100%"
                 style={{ minWidth: "190px" }}
                 hoverable
@@ -29,7 +30,7 @@ const Domains = ({ domains }: DomainsProp) => {
                 <Text>{domain.usage}</Text>
                 {domain.category ? (
                   <Card.Footer>
-                    {(domain.category as string[]).map((c) => (
+                    {(domain.categories.split(',') as string[]).map((c) => (
                       <Badge key={`${c}`}>
                         {c}
                       </Badge>
